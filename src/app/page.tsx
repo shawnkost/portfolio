@@ -1,7 +1,8 @@
+import AboutMe from "@/app/ui/About/AboutMe";
+import { Contact } from "@/app/ui/Contact/Contact";
 import { NavBar } from "@/app/ui/Navbar/Navbar";
-import AboutMe from "./ui/About/AboutMe";
-import MyProjects from "./ui/Projects/MyProjects";
-import MySkills from "./ui/Skills/MySkills";
+import MyProjects from "@/app/ui/Projects/MyProjects";
+import MySkills from "@/app/ui/Skills/MySkills";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
         </div>
         <section>
           <MyProjects />
+        </section>
+        <section>
+          <Contact />
         </section>
       </main>
     </>
