@@ -7,7 +7,7 @@ type Link = {
   title: string;
 };
 
-export function NavLinks({ links }: ChildProps) {
+export function NavLinks({ links }: ChildProps): JSXElement {
   return links.map((link) => (
     <li
       key={link.id}

@@ -123,7 +123,7 @@ export const projects = [
     title: "Discord Bot",
     description:
       "A discord bot for users to check various stock prices, receive a daily inspirational quote, or sends them encouragement messages when say a keyword",
-    image: "/.png",
+    image: "/edit.png",
     buttons: [
       {
         text: "View Demo",
