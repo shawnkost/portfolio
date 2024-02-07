@@ -22,7 +22,13 @@ export function MobileProjects({
   return (
     <div className="mb-16 grid grid-cols-1 md:grid-cols-2">
       <div className="image-wrapper mb-5 md:mb-0">
-        <Image src={image} alt={title} width={500} height={500} />
+        <Image
+          className="w-full"
+          src={image}
+          alt={title}
+          width={500}
+          height={500}
+        />
       </div>
       <div className="text-left">
         <h2 className="mb-4 text-2xl font-semibold uppercase">{title}</h2>

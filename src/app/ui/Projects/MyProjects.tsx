@@ -2,9 +2,25 @@
 
 import { projects } from "@/app/lib/constants";
 import Button from "@/app/ui/Button";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { MobileProjects } from "./MobileProjects";
 
 const MyProjects: React.FC = () => {
+  const [mobile, isMobile] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (screen.width <= 768) {
+        isMobile(true);
+      } else {
+        isMobile(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+  }, []);
+
   return (
     <div
       id="projects"
@@ -18,7 +34,7 @@ const MyProjects: React.FC = () => {
         </p>
         <div className="mt-10">
           {projects.map((project, i) => {
-            if (screen.width <= 768) {
+            if (mobile) {
               return (
                 <MobileProjects
                   key={project.title}
@@ -35,10 +51,12 @@ const MyProjects: React.FC = () => {
                   key={project.title}
                 >
                   <div className="image-wrapper mb-5 md:mb-0">
-                    <img
+                    <Image
+                      className="w-full"
                       src={project.image}
                       alt={project.title}
-                      className="w-full"
+                      width={500}
+                      height={500}
                     />
                   </div>
                   <div className="text-left">
@@ -84,10 +102,12 @@ const MyProjects: React.FC = () => {
                     </div>
                   </div>
                   <div className="image-wrapper mb-5 md:mb-0">
-                    <img
+                    <Image
+                      className="w-full"
                       src={project.image}
                       alt={project.title}
-                      className="w-full"
+                      width={500}
+                      height={500}
                     />
                   </div>
                 </div>
