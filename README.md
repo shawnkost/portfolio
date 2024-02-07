@@ -1,28 +1,58 @@
-# Create T3 App
+# Personal Portfolio ⚡️
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+> My own personal website to showcase some projects and skills
 
-## What's next? How do I make an app with this?
+> https://shawnkost.dev
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/shawnkost/portfolio/commits/main)
+[![Ask Me Anything !](https://img.shields.io/badge/ask%20me-linkedin-1abc9c.svg)](https://www.linkedin.com/in/shawnkost/)
+![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tools Used
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+![Next.JS](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## Learn More
+## Sections
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+✔️ About Me\
+✔️ Skills\
+✔️ Projects\
+✔️ Contact
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Planned Features
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+✔️ Unit tests
 
-## How do I deploy this?
+## 🛠 Installation and Setup Instructions
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Getting started is a simple as cloning the repository
+
+```
+git clone git@github.com:shawnkost/portfolio.git
+```
+
+Changing into the new directory
+
+```
+cd portfolio
+```
+
+Installing dependencies
+
+```
+npm install
+```
+
+Starting the development server
+
+```
+npm run dev
+```
+
+Runs the app in the development mode.\
+Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
+The page will reload if you make edits.
