@@ -13,20 +13,20 @@ concurrency:
 jobs:
   build:
     name: CI
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        - name: Install Dependencies
-          run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-        - name: Typecheck
-          run: npm run typecheck
+      - name: Typecheck
+        run: npm run typecheck
 
-        - name: Lint
-          run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-        - name: Check formatting with Prettier
-          run: npm run prettier:check:ci
+      - name: Check formatting with Prettier
+        run: npm run prettier:check:ci
