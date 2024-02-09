@@ -11,13 +11,14 @@ const MyProjects: React.FC = () => {
 
   useEffect(() => {
     const onResize = () => {
-      if (screen.width <= 768) {
+      console.log("onResize running", onResize);
+      if (window.screen.width <= 768) {
         isMobile(true);
       } else {
         isMobile(false);
       }
     };
-
+    onResize();
     window.addEventListener("resize", onResize);
   }, []);
 
