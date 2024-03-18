@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { montserrat } from "@/app/ui/fonts";
 import type { Metadata } from "next";
+import { CSPostHogProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Shawn Kost - My Portfolio",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <CSPostHogProvider>
+        <body className={montserrat.className}>{children}</body>
+      </CSPostHogProvider>
     </html>
   );
 }
