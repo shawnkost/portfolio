@@ -11,7 +11,6 @@ const MyProjects: React.FC = () => {
 
   useEffect(() => {
     const onResize = () => {
-      console.log("onResize running", onResize);
       if (window.screen.width <= 768) {
         isMobile(true);
       } else {
@@ -20,6 +19,11 @@ const MyProjects: React.FC = () => {
     };
     onResize();
     window.addEventListener("resize", onResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   return (
