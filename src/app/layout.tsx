@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import { montserrat } from "@/app/ui/fonts";
 import type { Metadata } from "next";
-import { PhProvider } from "./providers";
+import { PHProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Shawn Kost - My Portfolio",
@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <PhProvider>
+      <PHProvider>
         <body className={montserrat.className}>{children}</body>
-      </PhProvider>
+      </PHProvider>
     </html>
   );
 }
