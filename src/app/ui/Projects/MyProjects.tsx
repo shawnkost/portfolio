@@ -1,17 +1,16 @@
 "use client";
 
 import { projects } from "@/app/lib/constants";
-import Button from "@/app/ui/Button";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MobileProjects } from "./MobileProjects";
+import ProjectComponent from "./ProjectComponent";
 
 const MyProjects: React.FC = () => {
   const [mobile, isMobile] = useState(false);
 
   useEffect(() => {
     const onResize = () => {
-      if (window.screen.width <= 768) {
+      if (window.innerWidth <= 768) {
         isMobile(true);
       } else {
         isMobile(false);
@@ -49,73 +48,13 @@ const MyProjects: React.FC = () => {
                   description={project.description}
                 />
               );
-            } else if (i % 2 === 0) {
-              return (
-                <div
-                  className="mb-16 grid grid-cols-1 md:grid-cols-2"
-                  key={project.title}
-                >
-                  <div className="image-wrapper mb-5 md:mb-0">
-                    <Image
-                      className="w-full"
-                      src={project.image}
-                      alt={project.title}
-                      width={500}
-                      height={500}
-                    />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="mb-4 text-2xl font-semibold uppercase">
-                      {project.title}
-                    </h2>
-                    <p>{project.description}</p>
-                    <div className="flex gap-8 font-semibold text-white">
-                      {project.buttons.map((button) => (
-                        <Button
-                          text={button.text}
-                          variant="primary"
-                          link={button.link}
-                          key={button.text}
-                          border={true}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
             } else {
               return (
-                <div
-                  className="mb-16 grid grid-cols-1 md:grid-cols-2"
+                <ProjectComponent
                   key={project.title}
-                >
-                  <div className="text-right">
-                    <h2 className="mb-4 text-2xl font-semibold uppercase">
-                      {project.title}
-                    </h2>
-                    <p>{project.description}</p>
-                    <div className="flex justify-end gap-8 font-semibold text-white">
-                      {project.buttons.map((button) => (
-                        <Button
-                          text={button.text}
-                          variant="primary"
-                          link={button.link}
-                          key={button.text}
-                          border={true}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="image-wrapper mb-5 md:mb-0">
-                    <Image
-                      className="w-full"
-                      src={project.image}
-                      alt={project.title}
-                      width={500}
-                      height={500}
-                    />
-                  </div>
-                </div>
+                  project={project}
+                  imageFirst={i % 2 === 0}
+                />
               );
             }
           })}
