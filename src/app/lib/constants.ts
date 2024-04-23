@@ -107,7 +107,7 @@ export const projects = [
     title: "AniManiac",
     description:
       "A web application that lets the user view the top anime of all time, along with currently airing and upcoming shows",
-    image: "/animaniac.png",
+    image: "/animaniac.webp",
     buttons: [
       {
         text: "View Demo",
@@ -116,6 +116,22 @@ export const projects = [
       {
         text: "Github",
         link: "https://github.com/shawnkost/ajax-project",
+      },
+    ],
+  },
+  {
+    title: "Natours",
+    description:
+      "A landing page for a fictional company that offers tours around the world",
+    image: "/natours.png",
+    buttons: [
+      {
+        text: "View Demo",
+        link: "https://shawnkost.github.io/Natours/",
+      },
+      {
+        text: "Github",
+        link: "https://github.com/shawnkost/Natours",
       },
     ],
   },
