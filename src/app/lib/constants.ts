@@ -120,6 +120,22 @@ export const projects = [
     ],
   },
   {
+    title: "Image Gallery",
+    description:
+      "A web application that lets users upload images and view them in a gallery.",
+    image: "/image-gallery.png",
+    buttons: [
+      {
+        text: "View Demo",
+        link: "https://image-gallery-kappa-blush.vercel.app/",
+      },
+      {
+        text: "Github",
+        link: "https://github.com/shawnkost/image-gallery",
+      },
+    ],
+  },
+  {
     title: "Natours",
     description:
       "A landing page for a fictional company that offers tours around the world",
