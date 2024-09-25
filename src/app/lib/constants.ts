@@ -111,11 +111,11 @@ export const projects = [
     buttons: [
       {
         text: "View Demo",
-        link: "https://shawnkost.github.io/AniManiac/",
+        link: "https://animaniac.shawnkost.dev",
       },
       {
         text: "Github",
-        link: "https://github.com/shawnkost/ajax-project",
+        link: "https://github.com/shawnkost/AniManiac",
       },
     ],
   },
