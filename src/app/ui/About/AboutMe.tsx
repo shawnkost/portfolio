@@ -23,7 +23,7 @@ uppercase text-white md:w-3/4 lg:w-2/3"
           <Button
             text="My Resume"
             variant="primary"
-            link="https://drive.google.com/file/d/1MV_eZsYdhcEJi0quL_zPE4PA8IGENQ1Z/view?usp=drive_link"
+            link="https://drive.google.com/file/d/1nxPEIsTcV2Qs-R6IYqn7blexT0mgehXW/view?usp=sharing"
             border={false}
           />
         </div>
