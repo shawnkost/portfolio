@@ -1,58 +1,47 @@
-# Personal Portfolio ⚡️
+# Astro Starter Kit: Minimal
 
-> My own personal website to showcase some projects and skills
-
-> https://shawnkost.dev
-
-[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/shawnkost/portfolio/commits/main)
-[![Ask Me Anything !](https://img.shields.io/badge/ask%20me-linkedin-1abc9c.svg)](https://www.linkedin.com/in/shawnkost/)
-![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-
-## Tools Used
-
-![Next.JS](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-
-## Sections
-
-✔️ About Me\
-✔️ Skills\
-✔️ Projects\
-✔️ Contact
-
-## Planned Features
-
-✔️ Unit tests
-
-## 🛠 Installation and Setup Instructions
-
-Getting started is a simple as cloning the repository
-
-```
-git clone git@github.com:shawnkost/portfolio.git
+```sh
+pnpm create astro@latest -- --template minimal
 ```
 
-Changing into the new directory
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-```
-cd portfolio
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-Installing dependencies
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```
-npm install
-```
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Starting the development server
+Any static assets, like images, can be placed in the `public/` directory.
 
-```
-npm run dev
-```
+## 🧞 Commands
 
-Runs the app in the development mode.\
-Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
-The page will reload if you make edits.
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

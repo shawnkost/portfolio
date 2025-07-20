@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    @theme {
+      /* Font families */
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* Base colors */
+      --color-surface: hsl(225 20% 9%);
+      --color-surface-raised: hsl(225 18% 13%);
+      --color-text: hsl(220 15% 96%);
+      --color-text-muted: hsl(220 10% 68%);
+
+      /* Accent & interactive states */
+      --color-accent: hsl(16 100% 66%);
+      --color-accent-hover: hsl(16 100% 60%);
+      --color-accent-active: hsl(16 80% 52%);
+      --color-border: hsl(225 15% 20%);
+      --color-focus: hsl(225 100% 80%);
+
+      /* Semantic colors */
+      --color-success: hsl(150 60% 55%);
+      --color-warning: hsl(48 97% 60%);
+      --color-error: hsl(0 90% 70%);
+    }
+  }
+
+  html {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  code {
+    background-color: var(--color-surface-raised);
+    color: var(--color-accent);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+  }
+
+  pre {
+    background-color: var(--color-surface-raised);
+    color: var(--color-text);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+}
