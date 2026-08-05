@@ -1,0 +1,127 @@
+---
+import { navLinks, site } from '@/data/site';
+import { getCollection } from 'astro:content';
+
+const publishedRoles = await getCollection(
+  'experience',
+  ({ data }) => !data.draft,
+);
+const links = navLinks.filter(
+  (link) => link.id !== 'work' || publishedRoles.length > 0,
+);
+---
+
+<header
+  class="border-rule/60 bg-surface/85 z-sticky sticky top-0 border-b backdrop-blur-md"
+>
+  <nav
+    aria-label="Primary"
+    class="gap-md px-lg py-md mx-auto flex max-w-5xl items-center justify-between"
+  >
+    <a
+      href="#main"
+      class="text-md text-ink hover:text-accent font-mono font-semibold tracking-tight transition-colors"
+    >
+      {site.wordmark}
+    </a>
+
+    <!-- Desktop -->
+    <ul class="gap-xl hidden items-center md:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={`#${link.id}`}
+              class="label hover:text-accent whitespace-nowrap transition-colors"
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Mobile trigger -->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="text-muted hover:text-accent transition-colors md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open menu"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path id="menu-bar-top" d="M4 7h16"></path>
+        <path id="menu-bar-mid" d="M4 12h16"></path>
+        <path id="menu-bar-bottom" d="M4 17h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <ul
+    id="mobile-menu"
+    hidden
+    class="border-rule/60 bg-surface gap-xs px-lg pt-sm pb-lg flex flex-col border-t md:hidden"
+  >
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={`#${link.id}`}
+            class="label py-xs hover:text-accent block whitespace-nowrap transition-colors"
+          >
+            {link.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bars = ['menu-bar-top', 'menu-bar-mid', 'menu-bar-bottom'].map((id) =>
+    document.getElementById(id),
+  );
+
+  const setOpen = (open: boolean) => {
+    if (!toggle || !menu) return;
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Morph the hamburger into a close glyph without swapping icon files.
+    bars[0]?.setAttribute('d', open ? 'M6 6l12 12' : 'M4 7h16');
+    bars[1]?.setAttribute('d', open ? 'M12 12h0' : 'M4 12h16');
+    bars[2]?.setAttribute('d', open ? 'M18 6L6 18' : 'M4 17h16');
+  };
+
+  toggle?.addEventListener('click', () => setOpen(menu?.hidden ?? false));
+
+  // Tapping a link scrolls to the anchor; the panel has to get out of the way.
+  menu
+    ?.querySelectorAll('a')
+    .forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu && !menu.hidden) {
+      setOpen(false);
+      toggle?.focus();
+    }
+  });
+
+  // Leaving the mobile breakpoint must not strand an open panel.
+  const desktop = window.matchMedia('(min-width: 48rem)');
+  desktop.addEventListener('change', (event) => {
+    if (event.matches) setOpen(false);
+  });
+</script>

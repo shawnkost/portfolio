@@ -17,16 +17,27 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Typecheck
-        run: npm run typecheck
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
 
-      - name: Lint
-        run: npm run lint
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Check formatting with Prettier
-        run: npm run prettier:check:ci
+      - name: Check formatting
+        run: pnpm prettier:check:ci
+
+      - name: Typecheck and validate content
+        run: pnpm check
+
+      # The old Next config set ignoreBuildErrors, so nothing here was ever
+      # really verified. Building in CI is the point of this job.
+      - name: Build
+        run: pnpm build

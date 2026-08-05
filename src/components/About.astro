@@ -1,0 +1,38 @@
+---
+import Section from '@/components/Section.astro';
+import portrait from '@/images/me.webp';
+import { site } from '@/data/site';
+import { Image } from 'astro:assets';
+---
+
+<Section id="about" heading="About" class="py-2xl">
+  <!-- Portrait sits in the narrow left column, prose in the wide right one.
+       It reads as a detail supporting the copy rather than a second headline. -->
+  <div class="gap-lg sm:gap-xl flex flex-col sm:flex-row sm:items-start">
+    <Image
+      src={portrait}
+      alt={`${site.name}, ${site.role.toLowerCase()}`}
+      widths={[140, 280, 420]}
+      sizes="140px"
+      loading="lazy"
+      class="border-rule h-[140px] w-[140px] shrink-0 rounded-full border object-cover"
+    />
+
+    <div class="prose-measure gap-lg text-md flex flex-col">
+      <p>
+        I got into software sideways. I started out in technical theater,
+        designing lighting and running stage production. Most of that job was
+        setup nobody in the audience ever sees. That led to work as a computer
+        technician integrating systems and servers, and eventually to writing
+        code, which is where I stayed.
+      </p>
+      <p>
+        That habit stuck. Build it carefully so it holds up once people are
+        actually using it, and keep the messy parts out of sight. These days
+        that mostly means front-end work: interfaces that stay fast and
+        accessible, and code the next person can actually read. I do enough
+        back-end to ship a feature end to end.
+      </p>
+    </div>
+  </div>
+</Section>

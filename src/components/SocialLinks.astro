@@ -1,0 +1,28 @@
+---
+import SocialIcon from '@/components/SocialIcon.astro';
+import { socials } from '@/data/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<ul class:list={['gap-sm flex items-center', className]}>
+  {
+    socials.map((social) => (
+      <li>
+        <a
+          href={social.href}
+          aria-label={social.label}
+          rel={social.href.startsWith('mailto:') ? undefined : 'me noopener'}
+          target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+          class="border-rule text-muted hover:border-accent hover:text-accent flex h-10 w-10 items-center justify-center rounded-full border transition-colors"
+        >
+          <SocialIcon name={social.name} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

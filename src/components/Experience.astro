@@ -1,0 +1,51 @@
+---
+import Section from '@/components/Section.astro';
+import { getCollection, render } from 'astro:content';
+
+const roles = (
+  await getCollection('experience', ({ data }) => !data.draft)
+).sort((a, b) => b.data.order - a.data.order);
+
+const rendered = await Promise.all(
+  roles.map(async (role) => ({
+    role,
+    Content: (await render(role)).Content,
+    hasBody: Boolean(role.body?.trim()),
+  })),
+);
+---
+
+{
+  rendered.length > 0 && (
+    <Section id="work" heading="Work" class="py-2xl">
+      <ul class="flex flex-col">
+        {rendered.map(({ role, Content, hasBody }) => (
+          <li class="border-rule/70 py-lg border-t first:border-t-0">
+            <div class="gap-2xs sm:gap-lg grid sm:grid-cols-[10rem_minmax(0,1fr)]">
+              <p class="label pt-2xs tabular-nums">
+                {role.data.start} — {role.data.end ?? 'Present'}
+              </p>
+              <div>
+                <h3 class="text-md text-ink font-bold">
+                  {role.data.role}
+                  <span class="text-accent"> · </span>
+                  <span class="text-muted font-normal">
+                    {role.data.company}
+                  </span>
+                </h3>
+                {role.data.location && (
+                  <p class="label mt-2xs">{role.data.location}</p>
+                )}
+                {hasBody && (
+                  <div class="prose-measure mt-xs text-sm">
+                    <Content />
+                  </div>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}

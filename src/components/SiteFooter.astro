@@ -1,0 +1,13 @@
+---
+import { site } from '@/data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-rule/60 border-t">
+  <div
+    class="gap-sm px-lg py-lg mx-auto flex max-w-5xl flex-col sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p class="label">© {year} {site.name}</p>
+  </div>
+</footer>

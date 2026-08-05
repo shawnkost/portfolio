@@ -1,7 +1,7 @@
-next-env.d.ts
-.next
+dist
+.astro
 .vercel
+node_modules
 pnpm-lock.yaml
-.eslint.json
-.vscode
-.contentlayer
+.agents
+skills-lock.json

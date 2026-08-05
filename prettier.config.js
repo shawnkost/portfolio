@@ -1,17 +1,13 @@
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions & import('@ianvs/prettier-plugin-sort-imports').PluginConfig} */
+/** @type {import('prettier').Config} */
 const config = {
-  plugins: [
-    "prettier-plugin-tailwindcss",
-    "@ianvs/prettier-plugin-sort-imports",
+  singleQuote: true,
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: '*.astro',
+      options: { parser: 'astro' },
+    },
   ],
-  importOrder: [
-    "<THIRD_PARTY_MODULES>",
-    "^@internal/(.*)$",
-    "^[./].*(?<!\\.(c|le|sc)ss)$",
-    "^[.]/[-a-zA-Z0-9_]+[.](module)[.](css|scss|less)$",
-  ],
-  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
-  importOrderTypeScriptVersion: "5.0.0",
 };
 
 export default config;
