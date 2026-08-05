@@ -1,0 +1,18 @@
+---
+import { skills } from '@/data/skills';
+---
+
+<section aria-label="Skills" class="px-lg py-xl mx-auto max-w-5xl">
+  <div
+    class="border-rule/70 gap-md py-lg sm:gap-xl flex flex-col border-y sm:flex-row sm:items-center"
+  >
+    <h2 class="label shrink-0">Working with</h2>
+    <ul class="gap-x-lg gap-y-sm flex flex-wrap">
+      {
+        skills.map((skill) => (
+          <li class="text-muted font-mono text-sm">{skill}</li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+# pnpm blocks dependency install scripts by default. esbuild needs its
+# postinstall to place the platform binary. Declaring it here keeps CI
+# non-interactive — `pnpm approve-builds` is a local-only prompt.
+allowBuilds:
+  esbuild: true

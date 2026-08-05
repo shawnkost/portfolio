@@ -1,0 +1,23 @@
+---
+import ProjectRow from '@/components/ProjectRow.astro';
+import Section from '@/components/Section.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Section id="projects" heading="Projects" class="py-2xl">
+  <p class="prose-measure -mt-md mb-xl">
+    A collection of things I&rsquo;ve built, mostly to answer a question I had.
+  </p>
+
+  <ul>
+    {
+      projects.map((project, index) => (
+        <ProjectRow project={project} index={index} />
+      ))
+    }
+  </ul>
+</Section>
