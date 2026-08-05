@@ -1,5 +1,11 @@
-# pnpm blocks dependency install scripts by default. esbuild needs its
-# postinstall to place the platform binary. Declaring it here keeps CI
-# non-interactive — `pnpm approve-builds` is a local-only prompt.
+# Single-package repo. `packages` is only here because pnpm 9 (which Vercel
+# still selects for this project) treats any pnpm-workspace.yaml as a monorepo
+# root and hard-fails with "packages field missing or empty" without it.
+packages:
+  - .
+
+# pnpm 10+ blocks dependency install scripts by default. esbuild needs its
+# postinstall to place the platform binary. pnpm 9 ignores this key and runs
+# build scripts anyway, so both versions end up correct.
 allowBuilds:
   esbuild: true
