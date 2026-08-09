@@ -1,96 +1,83 @@
-# Personal Portfolio ⚡️
+# shawnkost.dev ⚡️
 
-> My own personal website to showcase some projects and skills
+My personal portfolio — built to showcase my work, projects, and experience through a fast, minimal, and content-driven site.
 
-> https://shawnkost.dev
+### [./public/portfolio.png](https://shawnkost.dev)
 
-[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/shawnkost/portfolio/commits/main)
-[![Ask Me Anything !](https://img.shields.io/badge/ask%20me-linkedin-1abc9c.svg)](https://www.linkedin.com/in/shawnkost/)
-![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro\&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss\&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript\&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm\&logoColor=white)
 
-## Tools Used
+---
 
-![Astro](https://img.shields.io/badge/astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+## About
 
-Static Astro 7 site with Tailwind v4. It ships no framework runtime — the only
-JavaScript on the page is a small mobile-menu toggle and the Umami analytics
-tag.
+This repository contains the source for [shawnkost.dev](https://shawnkost.dev), my personal portfolio and home on the web.
 
-## Sections
+It's built with **Astro 7** and **Tailwind CSS v4**, with an emphasis on performance, simplicity, and keeping client-side JavaScript to a minimum.
 
-✔️ About\
-✔️ Work\
-✔️ Projects\
-✔️ Skills\
-✔️ Contact
+The site is statically generated and ships without a framework runtime. JavaScript is limited to the interactions that actually need it, plus privacy-friendly analytics through Umami.
 
-## Editing content
+## Built With
 
-| What                         | Where                                      |
-| ---------------------------- | ------------------------------------------ |
-| Projects                     | `src/content/projects/*.md`                |
-| Work history                 | `src/content/experience/*.md`              |
-| Skills list                  | `src/data/skills.ts`                       |
-| Name, email, résumé, socials | `src/data/site.ts`                         |
-| Hero and About copy          | `src/components/Hero.astro`, `About.astro` |
-| Design tokens                | `src/styles/global.css`                    |
+* **Astro 7** — static site generation and content collections
+* **Tailwind CSS v4** — styling and responsive design
+* **TypeScript** — typed data and configuration
+* **Zod** — build-time content validation
+* **astro:assets** — image optimization
+* **Umami** — privacy-friendly analytics
+* **pnpm** — package management
 
-Content shapes are validated by Zod at build time (`src/content.config.ts`), so
-a typo in frontmatter fails the build rather than rendering a broken card.
+## Under the Hood
 
-### Work section
+A few of the implementation details behind the site:
 
-One `.md` file per role in `src/content/experience/`, ordered by `order`
-descending (highest number renders first). Bodies are markdown bullet lists.
+**Content-driven architecture**
+Projects and work experience are managed through Astro content collections, keeping content separate from presentation.
 
-Entries with `draft: true` are excluded from the build, and the section plus
-its nav link disappear entirely if every entry is a draft — so a
-work-in-progress role never leaks to the live site. See
-`src/content/experience/README.md.example` for the frontmatter shape.
+**Build-time validation**
+Content schemas are validated with Zod, so malformed or incomplete content fails during the build rather than making it to production.
 
-### Images
+**Optimized images**
+Images are processed through `astro:assets`, allowing Astro to resize and optimize assets as part of the static build.
 
-Put images in `src/images/` (not `public/`) so `astro:assets` can resize and
-convert them at build time. Source files should be capped at roughly 2× their
-largest rendered size; project rows render at most 416px wide, so ~832px
-sources are right.
+**Minimal JavaScript**
+The site doesn't ship a client-side framework runtime. JavaScript is reserved for small interactive behavior where it's actually needed.
 
-## 🛠 Installation and Setup Instructions
+**Static by default**
+Pages are generated ahead of time and served as static assets, keeping the site lightweight and fast.
 
-This project uses [pnpm](https://pnpm.io). Install it with `brew install pnpm`
-or `corepack enable` if you don't have it.
+## Project Structure
 
+```text
+src/
+├── components/          # Astro components
+├── content/
+│   ├── experience/      # Work experience
+│   └── projects/        # Portfolio projects
+├── data/                # Site metadata and skills
+├── images/              # Optimized image sources
+└── styles/              # Global styles and design tokens
 ```
+
+## Running Locally
+
+```bash
 git clone git@github.com:shawnkost/portfolio.git
 cd portfolio
+
 pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:4321/](http://localhost:4321/) to view it in the browser.
-The page reloads as you edit.
+The development server runs at [localhost:4321](http://localhost:4321).
 
-## Scripts
+## Commands
 
-| Command                  | Does                                     |
-| ------------------------ | ---------------------------------------- |
-| `pnpm dev`               | Dev server on port 4321                  |
-| `pnpm build`             | Static build to `dist/`                  |
-| `pnpm preview`           | Serve the built output locally           |
-| `pnpm check`             | Typecheck + validate content collections |
-| `pnpm prettier:format`   | Format                                   |
-| `pnpm prettier:check:ci` | Verify formatting (runs in CI)           |
-
-### A note on pnpm
-
-Two things differ from a default pnpm setup, both deliberate:
-
-- **`sharp` is a direct dependency.** It's already a transitive dep of Astro,
-  but pnpm's strict linking means the build's prerender chunk can't resolve it
-  there, and image optimization fails. Astro's own error message asks for this.
-- **`pnpm-workspace.yaml` allows esbuild's install script.** pnpm blocks
-  dependency build scripts by default; esbuild needs its postinstall to place
-  the platform binary. Declaring it in the file keeps CI non-interactive.
+```bash
+pnpm dev       # Start the development server
+pnpm build     # Create a production build
+pnpm preview   # Preview the production build
+pnpm check     # Type-check and validate content
+```<img width="1483" height="905" alt="portfolio" src="https://github.com/user-attachments/assets/21bf2059-eb83-4b9e-96fe-dbfef6ac7375" />
