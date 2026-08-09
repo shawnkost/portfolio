@@ -10,10 +10,6 @@ const { id, heading, class: className } = Astro.props;
 
 <section id={id} class:list={['scroll-mt-20', className]}>
   <div class="px-lg mx-auto max-w-5xl">
-    <!-- Heading flush left with the body beneath it, then a hairline that
-         runs out to the right edge. No numbered eyebrow: the Work section
-         hides itself until a real role is published, and a hardcoded
-         sequence would skip a number when it does. -->
     <div class="mb-xl gap-lg flex items-center">
       <h2 class="text-ink shrink-0 text-xl font-bold sm:text-2xl">{heading}</h2>
       <span class="bg-rule h-px flex-1" aria-hidden="true"></span>
