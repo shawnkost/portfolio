@@ -81,4 +81,4 @@ pnpm dev       # Start the development server
 pnpm build     # Create a production build
 pnpm preview   # Preview the production build
 pnpm check     # Type-check and validate content
-```<img width="1483" height="905" alt="portfolio" src="https://github.com/user-attachments/assets/21bf2059-eb83-4b9e-96fe-dbfef6ac7375" />
+```
