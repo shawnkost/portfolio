@@ -2,7 +2,8 @@
 
 My personal portfolio — built to showcase my work, projects, and experience through a fast, minimal, and content-driven site.
 
-### [./public/portfolio.png](https://shawnkost.dev)
+[![Portfolio website screenshot](./public/portfolio.png)](https://shawnkost.dev)
+
 
 ![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro\&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss\&logoColor=white)
